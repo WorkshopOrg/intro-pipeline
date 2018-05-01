@@ -11,7 +11,7 @@ pipeline {
         echo "${TEST_USER_PSW}"
       }
     }
-        stage('Get Kernel') {
+    stage('Get Kernel') {
       steps {
         script {
           try {
@@ -21,6 +21,7 @@ pipeline {
             throw err
           }
         }
+        
       }
     }
     stage('Say Kernel') {
@@ -37,8 +38,3 @@ pipeline {
     string(name: 'Name', defaultValue: 'whoever you are', description: 'Who should I say hi to?')
   }
 }
-  post {
-    aborted {
-      echo 'Why didn\'t you push my button?'
-    }
-  }
